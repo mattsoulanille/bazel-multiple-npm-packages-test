@@ -1,0 +1,6 @@
+node_modules
+*~
+bazel-bin
+bazel-out
+bazel-testlogs
+bazel-test_tfjs_wasm

@@ -1,0 +1,11 @@
+load("@npm//@bazel/typescript:index.bzl", "ts_library")
+
+ts_library(
+    name = "foo_library",
+    visibility = ["//visibility:public"],
+    srcs = [
+        "foo.ts",
+    ],
+    module_name = "@tests/foo",
+)
+
