@@ -1,0 +1,18 @@
+load("@npm//@bazel/typescript:index.bzl", "ts_library")
+load("@build_bazel_rules_nodejs//:index.bzl", "pkg_npm")
+
+ts_library(
+    name = "bla_lib",
+    visibility = ["//visibility:public"],
+    srcs = [
+        "bla.ts",
+    ],
+)
+
+# pkg_npm(
+#     name = "bla_pkg",
+#     visibility = ["//visibility:public"],
+#     deps = [
+#         ":bla_lib",
+#     ],
+# )

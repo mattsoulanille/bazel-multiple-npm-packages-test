@@ -2,23 +2,27 @@ load("@build_bazel_rules_nodejs//:index.bzl", "pkg_npm")
 load("@npm//@bazel/typescript:index.bzl", "ts_library")
 
 ts_library(
-    name = "bar_library",
+    name = "bar_lib",
     visibility = ["//visibility:public"],
     srcs = [
         "bar.ts",
     ],
     deps = [
-        "//foo_package:foo_library",
+        "//foo_package:foo_lib",
     ],
-    module_name = "@tests/bar",
+    module_name = "@test_multiple_packages/bar",
 )
 
 pkg_npm(
     name = "bar_package",
+    visibility = ["//visibility:public"],
     srcs = [
         "package.json",
     ],
     deps = [
-        ":bar_library",
+        ":bar_lib",
+    ],
+    nested_packages = [
+        "//foo_package",
     ],
 )

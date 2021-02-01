@@ -23,9 +23,9 @@
     "noFallthroughCasesInSwitch": true,
     "allowUnreachableCode": false,
     "paths": {
-      "@tests/foo": ["foo_package"],
-      "@tests/bar": ["bar_package"],
-      "@tests/baz": ["baz_package"]
+      "@test_multiple_packages/foo": ["foo_package"],
+      "@test_multiple_packages/bar": ["bar_package"],
+      "@test_multiple_packages/baz": ["baz_package"]
     }
   },
   "include": [

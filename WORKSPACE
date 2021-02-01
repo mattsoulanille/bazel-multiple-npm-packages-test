@@ -1,5 +1,5 @@
 workspace(
-    name = "test_tfjs_wasm",
+    name = "multiple_npm_packages",
     managed_directories = {"@npm": ["node_modules"]},
 )
 

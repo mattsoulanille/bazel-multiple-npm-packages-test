@@ -1,10 +1,10 @@
 {
-  "name": "@tests/bar",
+  "name": "@test_multiple_packages/bar",
   "version": "1.0.0",
   "main": "bar.js",
   "license": "Apache-2.0",
   "dependencies": {
-    "@tests/foo": "^1.0.0"
+    "@test_multiple_packages/foo": "^1.0.0"
   },
   "devDependencies": {
     "@bazel/typescript": "^3.0.0",

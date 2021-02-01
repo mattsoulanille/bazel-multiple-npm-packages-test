@@ -1,21 +1,52 @@
 load("@build_bazel_rules_nodejs//:index.bzl", "pkg_npm")
 load("@npm//@bazel/typescript:index.bzl", "ts_library")
+load("@npm//@bazel/jasmine:index.bzl", "jasmine_node_test");
 
 ts_library(
-    name = "foo_library",
+    name = "foo_lib",
     visibility = ["//visibility:public"],
     srcs = [
         "foo.ts",
     ],
-    module_name = "@tests/foo",
+    deps = [
+        "//foo_package/subdir:bla_lib"
+    ],
+    module_name = "@test_multiple_packages/foo",
+)
+
+ts_library(
+    name = "foo_test_lib",
+    testonly = True,
+    srcs = [
+        "foo_test.ts",
+    ],
+    deps = [
+        ":foo_lib",
+        "@npm//@types/jasmine",
+    ],
+)
+
+jasmine_node_test(
+    name = "foo_test",
+    srcs = [
+        ":foo_test_lib",
+    ],
+    deps = [
+        "//foo_package/subdir:bla_lib",
+    ],
 )
 
 pkg_npm(
     name = "foo_package",
+    visibility = ["//visibility:public"],
     srcs = [
         "package.json",
     ],
     deps = [
-        ":foo_library",
+        ":foo_lib",
+        "//foo_package/subdir:bla_lib",
     ],
+    # nested_packages = [
+    #     "//foo_package/subdir:bla_pkg",
+    # ],
 )

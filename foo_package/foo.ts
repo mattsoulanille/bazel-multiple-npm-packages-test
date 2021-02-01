@@ -1,3 +1,5 @@
+import { bla } from "./subdir/bla";
+
 export function foo() {
-  return "This is foo";
+    return `foo ${bla()}`;
 }
