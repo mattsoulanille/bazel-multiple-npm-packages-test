@@ -27,7 +27,7 @@ ts_library(
 )
 
 jasmine_node_test(
-    name = "foo_test",
+    name = "foo_package_test",
     srcs = [
         ":foo_test_lib",
     ],
