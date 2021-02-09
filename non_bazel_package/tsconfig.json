@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "ES2015",
+    "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "sourceMap": true,
@@ -13,6 +13,7 @@
       "es2017",
       "dom"
     ],
+    "outDir": "./dist",
     "noUnusedLocals": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -21,12 +22,6 @@
     "pretty": true,
     "noFallthroughCasesInSwitch": true,
     "allowUnreachableCode": false,
-    "paths": {
-      "@test_scoped_repo/*": [
-	"*",
-	"dist/bin/*"
-      ],
-    }
   },
   "include": [
     "src/"

@@ -1,5 +1,5 @@
 {
-  "name": "@tests/foo",
+  "name": "@test_scoped_repo/foo",
   "version": "1.0.0",
   "main": "foo.js",
   "license": "Apache-2.0",

@@ -1,21 +1,21 @@
 load("@build_bazel_rules_nodejs//:index.bzl", "pkg_npm")
 load("@npm//@bazel/typescript:index.bzl", "ts_library")
 
+
 ts_library(
-    name = "foo_library",
+    name = "bla_lib",
+    module_name = "@test_scoped_repo/foo/bla",
     visibility = ["//visibility:public"],
     srcs = [
-        "foo.ts",
+        "bla.ts",
     ],
-    module_name = "@tests/foo",
+
 )
 
 pkg_npm(
-    name = "foo_package",
-    srcs = [
-        "package.json",
-    ],
+    name = "bla_pkg",
+    visibility = ["//visibility:public"],
     deps = [
-        ":foo_library",
+        ":bla_lib",
     ],
 )

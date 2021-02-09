@@ -1,0 +1,45 @@
+load("@build_bazel_rules_nodejs//:index.bzl", "pkg_npm")
+load("@npm//@bazel/typescript:index.bzl", "ts_library")
+load("@npm//@bazel/jasmine:index.bzl", "jasmine_node_test");
+
+ts_library(
+    name = "bar_lib",
+    visibility = ["//visibility:public"],
+    srcs = [
+        "bar.ts",
+    ],
+    deps = [
+        "//foo:foo_lib",
+    ],
+    module_name = "@test_scoped_repo/bar",
+)
+
+ts_library(
+    name = "bar_test_lib",
+    testonly = True,
+    srcs = [
+        "bar_test.ts",
+    ],
+    deps = [
+        ":bar_lib",
+        "//foo:foo_lib",
+        "@npm//@types/jasmine",
+    ],
+)
+
+jasmine_node_test(
+    name = "bar_test",
+    srcs = [
+        ":bar_test_lib",
+    ],
+)
+
+pkg_npm(
+    name = "bar_pkg",
+    srcs = [
+        "package.json",
+    ],
+    deps = [
+        ":bar_lib",
+    ],
+)

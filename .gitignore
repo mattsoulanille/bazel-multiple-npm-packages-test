@@ -2,3 +2,4 @@ node_modules
 *~
 bazel-*
 dist
+yarn-error.log

@@ -2,23 +2,23 @@ load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
 load("@npm//@bazel/typescript:index.bzl", "ts_library")
 
 ts_library(
-    name = "baz_library",
+    name = "baz_lib",
     visibility = ["//visibility:public"],
     srcs = [
         "baz.ts",
     ],
     deps = [
-        "//bar_package:bar_library",
+        "//bar:bar_lib",
     ],
-    module_name = "@tests/baz",
+    module_name = "@test_scoped_repo/baz",
 )
 
 
 nodejs_binary(
-    name = "baz_binary",
+    name = "baz_bin",
     entry_point = "baz.ts",
     data = [
-        ":baz_library",
+        ":baz_lib",
     ],
 )
 
