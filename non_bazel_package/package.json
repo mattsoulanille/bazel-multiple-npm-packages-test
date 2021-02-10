@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "build": "yarn tsc",
+    "build": "yarn build-deps && yarn tsc",
+    "run": "node dist/non_bazel_package.js",
     "build-deps": "bazel build //foo:foo_pkg //bar:bar_pkg",
     "install-local": "yarn --registry http://localhost:4873"
   },
