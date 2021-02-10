@@ -1,0 +1,15 @@
+{
+  "name": "@test_scoped_repo/build_with_both",
+  "version": "1.0.3",
+  "main": "dist/example.js",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "yarn tsc",
+    "build-bazel": "bazel build ...",
+    "publish-yarn": "yarn build && yarn publish --registry http://localhost:4873",
+    "publish-bazel": "yarn version && bazel run :build_with_both_pkg.publish -- --registry http://localhost:4873"
+  },
+  "devDependencies": {
+    "typescript": "^4.1.4"
+  }
+}
