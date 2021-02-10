@@ -1,7 +1,7 @@
 {
   "name": "@test_scoped_repo/build_with_both",
-  "version": "1.0.10",
-  "main": "src/example.js",
+  "version": "1.0.11",
+  "main": "dist/example.js",
   "license": "Apache-2.0",
   "scripts": {
     "build": "yarn tsc",
