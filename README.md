@@ -112,4 +112,6 @@ This section covers how it's done in this repo.
 `rules_nodejs` provides the [`pkg_npm`](https://bazelbuild.github.io/rules_nodejs/Built-ins.html#pkg_npm) rule for `tar`ing and 
 publishing a package to npm, but there are a few caveats to keep in mind when doing this.
 1. The package needs its own `package.json` that declares its dependencies and name.
-2. The package name in `package.json` should be the same as TODO(matthew): Finish this
+2. The package name in `package.json` should be the same as the `module_name` in the root `ts_library`.
+This makes sure imports look the same whether the module is loaded from bazel or from npm.
+
