@@ -112,8 +112,7 @@ This section covers how it's done in this repo.
 `rules_nodejs` provides the [`pkg_npm`](https://bazelbuild.github.io/rules_nodejs/Built-ins.html#pkg_npm) rule for `tar`ing and 
 publishing a package to npm, but there are a few caveats to keep in mind when doing this.
 1. The package needs its own `package.json` that declares its dependencies and name.
-2. The package name in `package.json` should be the same as the `module_name` in the root `ts_library`.
-This makes sure imports look the same whether the module is loaded from bazel or from npm.
+2. The package name in `package.json` should be the same as the `module_name` in the root `ts_library`. All other importable `ts_library` targets should also set `module_name` to the corresponding path relative to where they appear in the filetree (take a look at `foo/bla` for an example). This makes sure imports look the same whether the module is loaded from bazel or from npm and is why the `bar` package works in bazel and in npm.
 
 To publish `foo` and `bar` to npm (verdaccio), start verdaccio and run `yarn publish-all` in the root of the repo. This will run the following commands:
 ```sh
