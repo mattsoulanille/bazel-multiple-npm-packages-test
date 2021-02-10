@@ -25,7 +25,7 @@ packages:
 ```
 
 ## Examples
-
+__These examples mostly assume you're starting from scratch in a new repo (although they can apply to an existing repo given enough refactoring). Check the `build_with_both` directory for details on what I think is a good way to convert a package in a JS monorepo to use Bazel.__
 ### Bazel Primer
 [Bazel](https://docs.bazel.build/versions/4.0.0/bazel-overview.html) is an open-source build toolchain developed by Google.
 It uses BUILD files to define targets that can be built or run and dependencies between targets. 
