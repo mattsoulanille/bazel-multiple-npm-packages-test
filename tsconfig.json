@@ -21,6 +21,7 @@
     "pretty": true,
     "noFallthroughCasesInSwitch": true,
     "allowUnreachableCode": false,
+    "baseUrl": "./",
     "paths": {
       "@test_scoped_repo/*": [
 	"*",
