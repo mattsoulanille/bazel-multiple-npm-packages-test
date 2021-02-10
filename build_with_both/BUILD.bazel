@@ -1,0 +1,35 @@
+load("@build_bazel_rules_nodejs//:index.bzl", "pkg_npm")
+load("@npm//@bazel/typescript:index.bzl", "ts_config", "ts_project")
+
+ts_config(
+    name = "example_lib_tsconfig",
+    src = "tsconfig.json",
+    deps = [
+        "//:tsconfig.json",
+    ],
+)
+
+ts_project(
+    name = "example_lib",
+    declaration = True,
+    #module_name = "@test_scoped_repo/build_with_both/dist",
+    srcs = glob(["src/**/*.ts"]),        
+    out_dir = "dist",
+    root_dir = "src",
+    source_map = True,
+    tsconfig = ":example_lib_tsconfig",
+    # module_root = ".",
+    # srcs = [
+    #     "src/example.ts",
+    # ],
+)
+
+pkg_npm(
+    name = "build_with_both_pkg",
+    srcs = [
+        "package.json",
+    ],
+    deps = [
+        ":example_lib",
+    ],
+)

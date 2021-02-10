@@ -9,6 +9,11 @@
   dependencies:
     "@test_scoped_repo/foo" "^1.0.0"
 
+"@test_scoped_repo/build_with_both@^1.0.13":
+  version "1.0.13"
+  resolved "http://localhost:4873/@test_scoped_repo%2fbuild_with_both/-/build_with_both-1.0.13.tgz#9d1ec15974453518cdaa907585143411ebb9d26d"
+  integrity sha512-HXumf3YwgMrl+fcqOvnTFaNAe8zdBMkJzvB8GOlrwBYNjchAjmuQ7b+7CNZNu7YM69PtsButKShwCJRSJPQXkQ==
+
 "@test_scoped_repo/foo@^1.0.0":
   version "1.0.0"
   resolved "http://localhost:4873/@test_scoped_repo%2ffoo/-/foo-1.0.0.tgz#1d4f1ce38b71f351ff7982ce1dabb20524a9fd45"
