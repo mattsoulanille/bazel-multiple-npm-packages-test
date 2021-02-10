@@ -115,3 +115,11 @@ publishing a package to npm, but there are a few caveats to keep in mind when do
 2. The package name in `package.json` should be the same as the `module_name` in the root `ts_library`.
 This makes sure imports look the same whether the module is loaded from bazel or from npm.
 
+To publish `foo` and `bar` to npm (verdaccio), start verdaccio and run `yarn publish-all` in the root of the repo. This will run the following commands:
+```sh
+bazel run //foo:foo_pkg.publish -- --registry http://localhost:4873
+bazel run //bar:bar_pkg.publish -- --registry http://localhost:4873
+```
+To simulate an external user consuming the packages, cd to `external_package` and run `yarn install-local` (to use verdaccio). Run `yarn tsc` to build and `node dist/external_package.js` to run the result.
+
+
