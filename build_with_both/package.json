@@ -1,6 +1,6 @@
 {
   "name": "@test_scoped_repo/build_with_both",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "main": "dist/example.js",
   "license": "Apache-2.0",
   "scripts": {
